@@ -15,7 +15,7 @@
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import { createHash } from 'crypto';
-import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
+import { writeFileSync, readFileSync, existsSync, mkdirSync, readdirSync, rmSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -114,6 +114,7 @@ async function main() {
 
   let written = 0;
   let skipped = 0;
+  const syncedSlugs = new Set(); // track slugs synced this run
 
   for (const page of response.results) {
     const props = page.properties;
@@ -152,6 +153,7 @@ async function main() {
 
     // ── Assemble file content ──────────────────────────────────────────────
     const slug = slugify(title);
+    syncedSlugs.add(slug);
     const filename = `${slug}.md`;
     const filepath = join(BLOG_DIR, filename);
     const fileContent = buildFrontmatter({ title, description, pubDate, tags }) + body;
@@ -174,7 +176,19 @@ async function main() {
     written++;
   }
 
-  console.log(`\nDone. ${written} written, ${skipped} unchanged.`);
+  // ── Cleanup: remove .md files no longer in the published set ─────────────
+  const existingFiles = readdirSync(BLOG_DIR).filter((f) => f.endsWith('.md'));
+  let removed = 0;
+  for (const file of existingFiles) {
+    const slug = file.replace(/\.md$/, '');
+    if (!syncedSlugs.has(slug)) {
+      rmSync(join(BLOG_DIR, file));
+      console.log(`  Removed:   ${file}`);
+      removed++;
+    }
+  }
+
+  console.log(`\nDone. ${written} written, ${skipped} unchanged, ${removed} removed.`);
 }
 
 main().catch((err) => {
