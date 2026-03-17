@@ -1,0 +1,39 @@
+name: Publish Notion Posts
+
+on:
+  workflow_dispatch: # Manual trigger from the Actions tab
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push the generated markdown files
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync posts from Notion
+        run: node scripts/publish.mjs
+        env:
+          NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog/
+          git diff --staged --quiet || (
+            git commit -m "chore: sync blog posts from Notion" &&
+            git push
+          )
