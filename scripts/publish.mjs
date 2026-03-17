@@ -104,7 +104,7 @@ async function main() {
     filter: {
       and: [
         { property: 'Type', select: { equals: 'Blog Post' } },
-        { property: 'Status', select: { equals: 'Published' } },
+        { property: 'Status', status: { equals: 'Published' } },
       ],
     },
     page_size: 100,
