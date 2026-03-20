@@ -47,7 +47,21 @@ Here's where it gets interesting for me. The Shop isn't just a productivity syst
 I use a three-mode model: Think, Build, and Automate. Claude Chat handles planning, writing, and decision-making. Claude Code handles actual code and file operations. Cowork (eventually) handles background tasks on a schedule. Each mode has its own tool, its own trust level, and clear boundaries.
 
 
-The idea is that these tools share context through layers rather than talking to each other directly. Notion acts as a shared whiteboard. Config files on disk set conventions that persist across sessions. In theory, each layer I add means less I have to carry between tools manually. In practice, I'm still early enough that I'm figuring out what belongs where. Right now it mostly means I'm noticing when I explain the same thing to Claude for the third time and thinking "that should probably be written down somewhere permanent." Sometimes that's a Notion page. Sometimes it's a config file. I don't have a clean framework for the split yet.
+```javascript
+Think    → Claude Chat  → planning, writing, decisions
+Build    → Claude Code  → code, files, shipping
+Automate → Cowork       → background tasks, schedules
+```
+
+
+The idea is that these tools share context through layers rather than talking to each other directly. Notion acts as a shared whiteboard. Config files on disk set conventions that persist across sessions. In practice, that's a hierarchy of `CLAUDE.md` files that Claude Code reads automatically:
+
+
+```javascript
+~/.claude/CLAUDE.md              # who I am, how I work (private)
+~/shop/CLAUDE.md                 # Shop-wide context, Notion IDs (private)
+~/shop/projects/blog/CLAUDE.md   # stack, conventions, commands (committed)
+```
 
 
 The session handoff system is the first real test. I update a Current State page at the end of every session, read it at the start of the next one. That alone cut my startup friction in half. The question I'm chasing now is: what else can work like that? What other context can I encode once and stop carrying around manually?

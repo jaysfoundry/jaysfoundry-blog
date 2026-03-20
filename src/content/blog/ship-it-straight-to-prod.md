@@ -2,7 +2,7 @@
 title: "Ship it Straight to Prod"
 description: "I built this blog and shipped it straight to production. No staging environment, no preview deploys, no PR review step. Notion to GitHub to Vercel, live on the"
 pubDate: "2026-03-18"
-tags: ["vercel", "nugget", "process", "Claude Code"]
+tags: ["vercel", "nugget", "process", "Claude Code", "cursor"]
 ---
 > 
 >
