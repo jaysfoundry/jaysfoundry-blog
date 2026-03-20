@@ -7,7 +7,7 @@ pubDate: "2026-03-20"
 I'm Jay (John Costallos). I'm a product manager by day, and Jay's Foundry is where I build things at night.
 
 
-I have a development background, drifted into product management, and never stopped wanting to get my hands on the tools. The Foundry is my dedicated space for that. One laptop, its own accounts, its own workflows, completely separate from everything else in my life. I wrote about why I set it up that way and what the operating model looks like in [Treating My Side Projects Like a Product](https://www.notion.so/blog/treating-my-side-projects-like-a-product).
+I have a development background, drifted into product management, and never stopped wanting to get my hands on the tools. The Foundry is my dedicated space for that. One laptop, its own accounts, its own workflows, completely separate from everything else in my life. I wrote about why I set it up that way and what the operating model looks like in [Treating My Side Projects Like a Product](https://jaysfoundry.com/blog/treating-my-side-projects-like-a-product/).
 
 
 ## Why "the Foundry"?

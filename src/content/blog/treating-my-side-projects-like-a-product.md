@@ -1,7 +1,7 @@
 ---
 title: "Treating My Side Projects Like a Product"
 description: "Side projects don't die because you run out of ideas. They die because you sit down on a Tuesday night, stare at the screen, and can't remember where you left o"
-pubDate: "2026-03-18"
+pubDate: "2026-03-17"
 tags: ["process", "agentic", "ai orchestration", "product"]
 ---
 
