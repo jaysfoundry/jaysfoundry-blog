@@ -1,6 +1,6 @@
 # Jay's Foundry
 
-**Build things. Learn in public. Stay curious.**
+**Build things. Show the work. Stay curious.**
 
 Personal blog built with Astro, documenting AI experiments, side projects, and lessons learned.
 
