@@ -12,6 +12,37 @@ import HatchedDivider from './HatchedDivider.astro';
       <a href="/rss.xml">RSS</a>
     </span>
   </div>
+  <div class="footer-accent" aria-hidden="true">
+    <svg viewBox="0 0 6 20" class="motif motif-bar"><rect width="6" height="20" rx="3" fill="#C44B2F"/></svg>
+    <svg viewBox="0 0 36 24" class="motif motif-grill-ind">
+      <circle cx="5" cy="5" r="3.5" fill="#8B7E6A" opacity="0.4"/>
+      <circle cx="18" cy="5" r="3.5" fill="#8B7E6A" opacity="0.4"/>
+      <circle cx="31" cy="5" r="3.5" fill="#C44B2F" opacity="0.6"/>
+      <circle cx="5" cy="19" r="3.5" fill="#8B7E6A" opacity="0.3"/>
+      <circle cx="18" cy="19" r="3.5" fill="#8B7E6A" opacity="0.3"/>
+      <circle cx="31" cy="19" r="3.5" fill="#8B7E6A" opacity="0.3"/>
+    </svg>
+    <svg viewBox="0 0 24 24" class="motif motif-dial">
+      <circle cx="12" cy="12" r="10.5" fill="none" stroke="#8B7E6A" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="12" cy="12" r="7" fill="#E8E3D9"/>
+      <rect x="11" y="0" width="2" height="5" rx="1" fill="#C44B2F"/>
+    </svg>
+    <svg viewBox="0 0 32 20" class="motif motif-lines">
+      <rect y="0" width="32" height="3" rx="1.5" fill="#8B7E6A" opacity="0.4"/>
+      <rect y="8.5" width="32" height="3" rx="1.5" fill="#8B7E6A" opacity="0.3"/>
+      <rect y="17" width="32" height="3" rx="1.5" fill="#8B7E6A" opacity="0.2"/>
+    </svg>
+    <svg viewBox="0 0 10 10" class="motif motif-dot"><circle cx="5" cy="5" r="5" fill="#C44B2F" opacity="0.5"/></svg>
+    <svg viewBox="0 0 36 24" class="motif motif-grill-ind">
+      <circle cx="5" cy="5" r="3.5" fill="#8B7E6A" opacity="0.3"/>
+      <circle cx="18" cy="5" r="3.5" fill="#8B7E6A" opacity="0.3"/>
+      <circle cx="31" cy="5" r="3.5" fill="#8B7E6A" opacity="0.3"/>
+      <circle cx="5" cy="19" r="3.5" fill="#8B7E6A" opacity="0.4"/>
+      <circle cx="18" cy="19" r="3.5" fill="#8B7E6A" opacity="0.4"/>
+      <circle cx="31" cy="19" r="3.5" fill="#C44B2F" opacity="0.6"/>
+    </svg>
+    <svg viewBox="0 0 6 20" class="motif motif-bar"><rect width="6" height="20" rx="3" fill="#C44B2F" opacity="0.4"/></svg>
+  </div>
 </footer>
 
 <style>
@@ -54,4 +85,19 @@ import HatchedDivider from './HatchedDivider.astro';
     color: var(--color-taupe);
     margin: 0 0.35em;
   }
+
+  .footer-accent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding-top: 2rem;
+    opacity: 0.8;
+  }
+
+  .motif-dial { width: 22px; height: 22px; }
+  .motif-bar { width: 6px; height: 20px; }
+  .motif-grill-ind { width: 30px; height: 20px; }
+  .motif-dot { width: 8px; height: 8px; }
+  .motif-lines { width: 28px; height: 18px; }
 </style>
