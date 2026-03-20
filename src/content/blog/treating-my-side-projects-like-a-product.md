@@ -38,6 +38,9 @@ The Shop runs on Notion, Claude, and a few simple habits. But the structure matt
 **Review regularly.** Every Wednesday I do a 15-minute review: move project cards, check the backlog, capture anything I missed. Sprint planning for one person.
 
 
+![My current Notion dashboard view](https://prod-files-secure.s3.us-west-2.amazonaws.com/7d1ad59e-5e88-8184-bbee-000375f490d0/5626dbb0-dfaf-497c-a088-5e820514e60a/Screenshot_2026-03-20_at_9.44.33_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466U6DQKOSN%2F20260320%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260320T140209Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLXdlc3QtMiJHMEUCIQCPXtEudu28C52CX4ZlQLBTQFOm1%2BDZ8UkwR0UQEQZv1wIgb9NwUebmtcJG9yrdHM%2BcFIRtNQp2Xa2Y6JH%2FQW1EGDIq%2FwMINxAAGgw2Mzc0MjMxODM4MDUiDJdzjDXIUURgS3uwICrcA8jQd6Gtyk38wSloueDL5A5XwYGb%2BaAsBWi0g8%2Bo63WR0BdHrwDXprvdYX9tnGQN8B427SM82MNIFSOUs%2FfPMfPILkxYKDKkHZz6OjvJ0vXKhTCvzydQJP0PrakxdvrdaEPgsZav0vTzuQ1xiXYqufxLu8muCD4VUPgx%2Bnxix2YCCe12FMqnpoTiG5FUNByuuLj3I7Y%2F%2F352faUxJKKjvY%2B3sAYgrM7zaUj7VIsQP6ZlzNmp577dvtHg8%2BXozWO36s4eFc5F9Lt4G6BKUI3XDGKDhOxi4SYZybrbLsQeYKickCEqj9zhhJNct%2FCc8Ws2DV%2FiUTT5oVmw9eKVJ0SX9iEGq4lJv0N2OAuiPImE7ECPbeDDy%2Bg1LUbAvr92sKIwFFez9El5A9aDT5DIu2DYduYuNM12umf9WDuwox4pgIctdJ8TymqFVRvoOqwJk3XJNvQSZe%2B00AUV4wR%2FAr%2B0XF504sZw1jlFx94dXzjtoV2HYNZoQqduvQQ%2F6RmHyHHP4AcePIclBnvQ%2BUu83jEQLMeG0BdL3qrHgVjPRRScRCmQwPmSHjms%2FIvGwPQiAiaIpWmaRCWVfbh9CWF1olQOYTr7bnypmDL6Sm2QIcFMr6sK7fzWV3Z7G5XRizt%2FMMOb9c0GOqUB%2BMpVb4v%2B%2FuqFXCplpx16RcRgXVQ4X4njOOS6ohwb78l5BGspCRw2j%2BlqqsFl3WVufpJ4ITJCEcBBNx8nVOTWEnMLkdc7Liuxk4U67W%2FCVWv5x7tQHNc97b0qR16%2BymhZ8tV75oOaHFedR5HfEpOWTImVrqiI0ozuQtqNEBgQe0%2FA%2BwGMEbnKhczbT1%2BVKn7%2BTeMytxliqhyJizxOV55LpMaeWgJ5&X-Amz-Signature=ef8348a2624c473527fce941af90bfe088b3f873d2869f70983614c45661f70a&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
+
+
 ## The agentic layer
 
 
@@ -67,13 +70,7 @@ The idea is that these tools share context through layers rather than talking to
 The session handoff system is the first real test. I update a Current State page at the end of every session, read it at the start of the next one. That alone cut my startup friction in half. The question I'm chasing now is: what else can work like that? What other context can I encode once and stop carrying around manually?
 
 
-My Current Notion Dashboard view
-
-
-    ![Screenshot_2026-03-20_at_9.44.33_AM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/7d1ad59e-5e88-8184-bbee-000375f490d0/5626dbb0-dfaf-497c-a088-5e820514e60a/Screenshot_2026-03-20_at_9.44.33_AM.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466YY2AYFKD%2F20260320%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260320T135210Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEG4aCXVzLXdlc3QtMiJIMEYCIQCTpH6DP5BY6k9%2FyvV0A1EHgt7L3SxfrL0BPCagZjl7wAIhAO7kY5%2BRmp6oHUn1ORkrDglN5S7SOfHlNlHups7qnwN4Kv8DCDcQABoMNjM3NDIzMTgzODA1IgylXVJ1YLFrYbmztmcq3APSG2OTHl9zEeLltrb5WwJvS%2FykIucHgV25myS0o0y1FjQ23d2UJv%2BLVauCuwfjEtgX8WHwo14M9DkfUrBOKU%2FAPHPIMOQ%2F%2F9Tgtlr79ccPJXtjFpvyzFQAHvsrVj34o%2B78682ETWj6JtQsT%2F%2BZbGdNx%2BYH4xsSGbDODsguF%2F%2BjQ0QsC9O0jSCspJcQa1yAKHIysLYFTKVGKlgZg3G0tglBjC0W8QpcGGsmIO0vXImnWMmtfc5aKziB1Pf9vInUYtpEKhT8vlIdfWDcscx8WZCcKoBqbDxO8Jou%2FO8ZaTvEkkujB2UgQLtLakeQOgRJ0t5tREaXqlIUKTAc%2BbTg2nOoywamPM7T7%2FE1AqqqHvvrIM48YhOFEFOWvrU4Ckro4eULcNf4y4eT3hS4uBUygU5ElIhXps1t9iYWg7w5Q11VSmrolNB9vh4PajBzoKyUzD2pU8HKoot3LauC9ALahm19RyRurbGCbysxbQlNpOLQlxj5Y4Brf8pdBl6l5xdN%2FlQMGTMxgJvql4fE2KiPPeJWswH3DOAksyeojVJ%2B1WYSGxUBZmYkrlJJyYTiDmAd2VkAe%2BbBIltOSs61mpKJdSy4dWFYMRrf8bzKh14k0NCucIEt9QAh6N3ykZV1PjDFm%2FXNBjqkAXNnfRxNjeTMXbNntupenzKlZREq97VKbb%2B8nP8ew3e4%2FHeNL4DY0ESKCzj8qkeT7H%2FeoHDwcIpUt4II6NYi%2FyImz5gVePO71hUvRXtfm3VK1iw4X%2B8Xyw83I8VymTG8BbwuQVLd18T7onliueXlJL10Jt4Ptnnj4lOGkZh%2BiyUvFTeqUTuaa4vKHUpaES6%2FWW0DdcDFg4GwW%2FxGX3%2Bmxdl0QI4S&X-Amz-Signature=514def2741544c227bcef1b3e177ec64f88717a8b508c286874ae0142f4711e7&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject)
-
-
-    I don't have clean answers yet. There are open questions I'm working through: when does automation earn enough trust to act without review? How do instruction files scale as projects multiply? What does multi-agent coordination actually look like when you're one person? I'm figuring it out by building, which is the whole point.
+I don't have clean answers yet. There are open questions I'm working through: when does automation earn enough trust to act without review? How do instruction files scale as projects multiply? What does multi-agent coordination actually look like when you're one person? I'm figuring it out by building, which is the whole point.
 
 
 ## What's here
