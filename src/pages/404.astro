@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import HatchedDivider from '../components/HatchedDivider.astro';
+import { SITE_TITLE } from '../consts';
+
+const pages = (await getCollection('pages')).map((p) => ({
+  title: p.data.title,
+  slug: p.id,
+}));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`404 — ${SITE_TITLE}`} description="Page not found." />
+  </head>
+  <body>
+    <Header variant="post" pages={pages} />
+    <main class="not-found">
+      <div class="dial" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#8B7E6A" stroke-width="2" opacity="0.35" />
+          <circle cx="60" cy="60" r="36" fill="#E8E3D9" />
+          <circle cx="60" cy="60" r="4" fill="#8B7E6A" opacity="0.5" />
+          <!-- Needle pointing to nothing -->
+          <rect x="58" y="12" width="4" height="28" rx="2" fill="#C44B2F" />
+        </svg>
+      </div>
+      <h1>404</h1>
+      <p class="message">Nothing here. The dial points nowhere.</p>
+      <a href="/" class="home-link">&larr; Back to Writing</a>
+    </main>
+    <HatchedDivider />
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .not-found {
+    width: var(--content-width);
+    max-width: calc(100% - var(--page-padding) * 2);
+    margin: 0 auto;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .dial {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    opacity: 0.8;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: var(--color-ink);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .message {
+    font-size: 16px;
+    color: var(--color-taupe);
+    margin: 0 0 2rem 0;
+  }
+
+  .home-link {
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .home-link:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(196, 75, 47, 0.3);
+  }
+</style>

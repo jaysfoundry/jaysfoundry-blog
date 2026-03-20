@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <rect width="1500" height="500" fill="#F0ECE3"/>
+  <rect x="0" y="0" width="1500" height="500" fill="none" stroke="#8B7E6A" stroke-width="1" opacity="0.15"/>
+
+  <!-- Left accent bar -->
+  <rect x="100" y="130" width="4" height="240" rx="2" fill="#C44B2F"/>
+
+  <!-- Brand name -->
+  <text x="124" y="230" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="58" font-weight="400" fill="#2C2824" letter-spacing="-0.5">Jay's Foundry</text>
+
+  <!-- Tagline -->
+  <text x="126" y="275" font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="400" fill="#8B7E6A" letter-spacing="3">BUILD THINGS. SHOW THE WORK. STAY CURIOUS.</text>
+
+  <!-- Motif strip -->
+  <rect x="126" y="310" width="4" height="16" rx="2" fill="#C44B2F"/>
+  <circle cx="146" cy="313" r="3" fill="#8B7E6A" opacity="0.4"/>
+  <circle cx="156" cy="313" r="3" fill="#8B7E6A" opacity="0.4"/>
+  <circle cx="166" cy="313" r="3" fill="#C44B2F" opacity="0.6"/>
+  <circle cx="146" cy="323" r="3" fill="#8B7E6A" opacity="0.3"/>
+  <circle cx="156" cy="323" r="3" fill="#8B7E6A" opacity="0.3"/>
+  <circle cx="166" cy="323" r="3" fill="#8B7E6A" opacity="0.3"/>
+  <circle cx="192" cy="318" r="9" fill="none" stroke="#8B7E6A" stroke-width="1.2" opacity="0.5"/>
+  <circle cx="192" cy="318" r="6" fill="#E8E3D9"/>
+  <rect x="191" y="308" width="2" height="5" rx="1" fill="#C44B2F"/>
+  <rect x="214" y="312" width="24" height="2.5" rx="1" fill="#8B7E6A" opacity="0.4"/>
+  <rect x="214" y="317" width="24" height="2.5" rx="1" fill="#8B7E6A" opacity="0.3"/>
+  <rect x="214" y="322" width="24" height="2.5" rx="1" fill="#8B7E6A" opacity="0.2"/>
+  <circle cx="252" cy="318" r="4" fill="#C44B2F" opacity="0.5"/>
+  <circle cx="270" cy="313" r="3" fill="#8B7E6A" opacity="0.3"/>
+  <circle cx="280" cy="313" r="3" fill="#8B7E6A" opacity="0.3"/>
+  <circle cx="290" cy="313" r="3" fill="#8B7E6A" opacity="0.3"/>
+  <circle cx="270" cy="323" r="3" fill="#8B7E6A" opacity="0.4"/>
+  <circle cx="280" cy="323" r="3" fill="#8B7E6A" opacity="0.4"/>
+  <circle cx="290" cy="323" r="3" fill="#C44B2F" opacity="0.6"/>
+  <rect x="306" y="310" width="4" height="16" rx="2" fill="#C44B2F" opacity="0.4"/>
+
+  <!-- Scale markings (right side) -->
+  <rect x="1200" y="150" width="10" height="40" rx="5" fill="#8B7E6A" opacity="0.4"/>
+  <rect x="1236" y="136" width="10" height="54" rx="5" fill="#8B7E6A" opacity="0.55"/>
+  <rect x="1272" y="122" width="10" height="68" rx="5" fill="#8B7E6A" opacity="0.7"/>
+  <rect x="1300" y="105" width="10" height="85" rx="5" fill="#C44B2F"/>
+  <rect x="1328" y="122" width="10" height="68" rx="5" fill="#8B7E6A" opacity="0.7"/>
+  <rect x="1364" y="136" width="10" height="54" rx="5" fill="#8B7E6A" opacity="0.55"/>
+
+  <!-- URL -->
+  <text x="1400" y="460" font-family="'DM Mono', monospace" font-size="13" fill="#8B7E6A" opacity="0.5" text-anchor="end">jaysfoundry.com</text>
+</svg>
