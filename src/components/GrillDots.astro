@@ -1,0 +1,23 @@
+---
+/* 4×3 speaker grill dot grid — Braun radio reference */
+---
+
+<div class="grill-dots" aria-hidden="true">
+  {Array.from({ length: 12 }).map(() => <span />)}
+</div>
+
+<style>
+  .grill-dots {
+    display: grid;
+    grid-template-columns: repeat(4, 4px);
+    gap: 6px;
+    opacity: 0.35;
+  }
+
+  .grill-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #6B6152;
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((page) => ({
+    params: { page: page.id },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: CollectionEntry<'pages'>;
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+const allPages = (await getCollection('pages')).map((p) => ({
+  title: p.data.title,
+  slug: p.id,
+}));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${page.data.title} — Jay's Foundry`} description={page.data.description} />
+  </head>
+  <body>
+    <Header variant="post" pages={allPages} />
+    <main>
+      <h1 class="page-title">{page.data.title}</h1>
+      <div class="prose">
+        <Content />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-title {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    color: var(--color-ink);
+    margin: 0 0 1.5rem 0;
+  }
+</style>

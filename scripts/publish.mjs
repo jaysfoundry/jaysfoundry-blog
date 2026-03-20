@@ -1,11 +1,12 @@
 /**
  * Notion-to-blog publish script.
  *
- * Queries the Notion Learning Log database for entries where:
- *   Type = "Blog Post" AND Status = "Published"
+ * Queries the Notion Learning Log database for:
+ *   - Blog posts:  Type = "Blog Post" AND Status = "Published"  → src/content/blog/
+ *   - Pages:       Type = "Page"      AND Status = "Published"  → src/content/pages/
  *
- * Converts each matching page to an Astro-compatible markdown file and writes
- * it to src/content/blog/. Skips files whose content hasn't changed (by hash).
+ * Converts each matching Notion page to an Astro-compatible markdown file.
+ * Skips files whose content hasn't changed (by hash).
  *
  * Required env vars:
  *   NOTION_API_TOKEN    — Notion integration token
@@ -21,6 +22,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BLOG_DIR = join(__dirname, '../src/content/blog');
+const PAGES_DIR = join(__dirname, '../src/content/pages');
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -55,7 +57,6 @@ function extractDescription(markdown, title) {
       !t.startsWith('|') &&
       !t.startsWith('```')
     ) {
-      // Strip common inline markdown and URLs
       const plain = t
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
         .replace(/[*_`]/g, '');
@@ -68,53 +69,45 @@ function extractDescription(markdown, title) {
 /** Build the YAML frontmatter block for an Astro content collection entry. */
 function buildFrontmatter({ title, description, pubDate, tags }) {
   const esc = (s) => s.replace(/"/g, '\\"');
-  const tagList = tags.map((t) => `"${esc(t)}"`).join(', ');
-  return [
+  const lines = [
     '---',
     `title: "${esc(title)}"`,
     `description: "${esc(description)}"`,
     `pubDate: "${pubDate}"`,
-    `tags: [${tagList}]`,
-    '---',
-    '',
-  ].join('\n');
+  ];
+  if (tags && tags.length > 0) {
+    const tagList = tags.map((t) => `"${esc(t)}"`).join(', ');
+    lines.push(`tags: [${tagList}]`);
+  }
+  lines.push('---', '');
+  return lines.join('\n');
 }
 
-// ── Main ─────────────────────────────────────────────────────────────────────
+// ── Sync logic ───────────────────────────────────────────────────────────────
 
-async function main() {
-  const { NOTION_API_TOKEN, NOTION_DATABASE_ID } = process.env;
-  if (!NOTION_API_TOKEN || !NOTION_DATABASE_ID) {
-    console.error(
-      'Error: NOTION_API_TOKEN and NOTION_DATABASE_ID must be set.',
-    );
-    process.exit(1);
-  }
+/**
+ * Query Notion for entries matching a Type filter, convert to markdown,
+ * and write to the target directory. Returns sync stats.
+ */
+async function syncEntries({ notion, n2m, databaseId, typeFilter, targetDir, label, includeTags }) {
+  mkdirSync(targetDir, { recursive: true });
 
-  const notion = new Client({ auth: NOTION_API_TOKEN });
-  const n2m = new NotionToMarkdown({ notionClient: notion });
-
-  mkdirSync(BLOG_DIR, { recursive: true });
-
-  // Query the database — filter to Blog Posts that are Published.
-  // NOTE: If you have more than 100 published posts, add cursor-based
-  // pagination using response.next_cursor / response.has_more.
   const response = await notion.databases.query({
-    database_id: NOTION_DATABASE_ID,
+    database_id: databaseId,
     filter: {
       and: [
-        { property: 'Type', select: { equals: 'Blog Post' } },
+        { property: 'Type', select: { equals: typeFilter } },
         { property: 'Status', status: { equals: 'Published' } },
       ],
     },
     page_size: 100,
   });
 
-  console.log(`Found ${response.results.length} published blog post(s).`);
+  console.log(`Found ${response.results.length} published ${label}(s).`);
 
   let written = 0;
   let skipped = 0;
-  const syncedSlugs = new Set(); // track slugs synced this run
+  const syncedSlugs = new Set();
 
   for (const page of response.results) {
     const props = page.properties;
@@ -137,11 +130,10 @@ async function main() {
         ? props.Date.date.start
         : page.created_time.slice(0, 10);
 
-    // ── Tags ───────────────────────────────────────────────────────────────
-    const tags =
-      props.Tags?.type === 'multi_select'
-        ? props.Tags.multi_select.map((t) => t.name)
-        : [];
+    // ── Tags (blog posts only) ──────────────────────────────────────────
+    const tags = includeTags && props.Tags?.type === 'multi_select'
+      ? props.Tags.multi_select.map((t) => t.name)
+      : [];
 
     // ── Body markdown ──────────────────────────────────────────────────────
     const mdBlocks = await n2m.pageToMarkdown(page.id);
@@ -155,8 +147,13 @@ async function main() {
     const slug = slugify(title);
     syncedSlugs.add(slug);
     const filename = `${slug}.md`;
-    const filepath = join(BLOG_DIR, filename);
-    const fileContent = buildFrontmatter({ title, description, pubDate, tags }) + body;
+    const filepath = join(targetDir, filename);
+    const fileContent = buildFrontmatter({
+      title,
+      description,
+      pubDate,
+      tags: includeTags ? tags : undefined,
+    }) + body;
 
     // ── Skip if unchanged (avoid spurious commits) ─────────────────────────
     const newHash = createHash('sha256').update(fileContent).digest('hex');
@@ -177,18 +174,64 @@ async function main() {
   }
 
   // ── Cleanup: remove .md files no longer in the published set ─────────────
-  const existingFiles = readdirSync(BLOG_DIR).filter((f) => f.endsWith('.md'));
-  let removed = 0;
-  for (const file of existingFiles) {
-    const slug = file.replace(/\.md$/, '');
-    if (!syncedSlugs.has(slug)) {
-      rmSync(join(BLOG_DIR, file));
-      console.log(`  Removed:   ${file}`);
-      removed++;
+  if (existsSync(targetDir)) {
+    const existingFiles = readdirSync(targetDir).filter((f) => f.endsWith('.md'));
+    let removed = 0;
+    for (const file of existingFiles) {
+      const slug = file.replace(/\.md$/, '');
+      if (!syncedSlugs.has(slug)) {
+        rmSync(join(targetDir, file));
+        console.log(`  Removed:   ${file}`);
+        removed++;
+      }
     }
+    return { written, skipped, removed };
   }
 
-  console.log(`\nDone. ${written} written, ${skipped} unchanged, ${removed} removed.`);
+  return { written, skipped, removed: 0 };
+}
+
+// ── Main ─────────────────────────────────────────────────────────────────────
+
+async function main() {
+  const { NOTION_API_TOKEN, NOTION_DATABASE_ID } = process.env;
+  if (!NOTION_API_TOKEN || !NOTION_DATABASE_ID) {
+    console.error(
+      'Error: NOTION_API_TOKEN and NOTION_DATABASE_ID must be set.',
+    );
+    process.exit(1);
+  }
+
+  const notion = new Client({ auth: NOTION_API_TOKEN });
+  const n2m = new NotionToMarkdown({ notionClient: notion });
+
+  // Sync blog posts
+  console.log('── Blog posts ──');
+  const blogStats = await syncEntries({
+    notion,
+    n2m,
+    databaseId: NOTION_DATABASE_ID,
+    typeFilter: 'Blog Post',
+    targetDir: BLOG_DIR,
+    label: 'blog post',
+    includeTags: true,
+  });
+
+  // Sync pages
+  console.log('\n── Pages ──');
+  const pageStats = await syncEntries({
+    notion,
+    n2m,
+    databaseId: NOTION_DATABASE_ID,
+    typeFilter: 'Page',
+    targetDir: PAGES_DIR,
+    label: 'page',
+    includeTags: false,
+  });
+
+  console.log('\nDone.');
+  console.log(`  Blog posts: ${blogStats.written} written, ${blogStats.skipped} unchanged, ${blogStats.removed} removed.`);
+  console.log(`  Pages:      ${pageStats.written} written, ${pageStats.skipped} unchanged, ${pageStats.removed} removed.`);
 }
 
 main().catch((err) => {

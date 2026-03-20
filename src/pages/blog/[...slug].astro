@@ -3,18 +3,44 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
-}
-type Props = CollectionEntry<'blog'>;
+  const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
 
-const post = Astro.props;
+  return posts.map((post, index) => {
+    const prevPost = posts[index + 1]
+      ? { title: posts[index + 1].data.title, slug: posts[index + 1].id }
+      : undefined;
+    const nextPost = posts[index - 1]
+      ? { title: posts[index - 1].data.title, slug: posts[index - 1].id }
+      : undefined;
+
+    return {
+      params: { slug: post.id },
+      props: { post, prevPost, nextPost },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  prevPost?: { title: string; slug: string };
+  nextPost?: { title: string; slug: string };
+}
+
+const { post, prevPost, nextPost } = Astro.props;
 const { Content } = await render(post);
+
+/* Reading time: ~200 words per minute on raw markdown */
+const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
+const pages = (await getCollection('pages')).map((p) => ({
+  title: p.data.title,
+  slug: p.id,
+}));
 ---
 
-<BlogPost {...post.data}>
-	<Content />
+<BlogPost {...post.data} readingTime={readingTime} prevPost={prevPost} nextPost={nextPost} pages={pages}>
+  <Content />
 </BlogPost>

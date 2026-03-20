@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="64" fill="#F0ECE3"/>
+  <!-- 2x2 control dots — Braun appliance button layout -->
+  <circle cx="200" cy="200" r="44" fill="#8B7E6A" opacity="0.45"/>
+  <circle cx="312" cy="200" r="44" fill="#8B7E6A" opacity="0.45"/>
+  <circle cx="200" cy="312" r="44" fill="#8B7E6A" opacity="0.45"/>
+  <circle cx="312" cy="312" r="44" fill="#C44B2F"/>
+</svg>

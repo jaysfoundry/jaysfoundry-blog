@@ -1,0 +1,35 @@
+---
+/* Three parallel lines with fading opacity — speaker grill line texture */
+---
+
+<div class="hatched-divider" aria-hidden="true">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<style>
+  .hatched-divider {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hatched-divider span {
+    display: block;
+    height: 1px;
+    width: 100%;
+  }
+
+  .hatched-divider span:nth-child(1) {
+    background: rgba(139, 126, 106, 0.25);
+  }
+
+  .hatched-divider span:nth-child(2) {
+    background: rgba(139, 126, 106, 0.18);
+  }
+
+  .hatched-divider span:nth-child(3) {
+    background: rgba(139, 126, 106, 0.12);
+  }
+</style>

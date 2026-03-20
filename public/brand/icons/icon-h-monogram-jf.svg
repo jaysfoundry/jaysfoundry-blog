@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="64" fill="#F0ECE3"/>
+  <!-- J -->
+  <path d="M84 144 L128 144 L128 310 Q128 376 80 376 L56 376 L56 338 L80 338 Q88 338 88 310 L88 144 Z" fill="#2C2A25"/>
+  <!-- F -->
+  <path d="M168 144 L332 144 L332 178 L208 178 L208 244 L306 244 L306 278 L208 278 L208 374 L168 374 Z" fill="#2C2A25"/>
+  <!-- Dial knob -->
+  <circle cx="390" cy="348" r="42" fill="none" stroke="#8B7E6A" stroke-width="8" opacity="0.4"/>
+  <circle cx="390" cy="348" r="24" fill="#E8E3D9"/>
+  <rect x="386" y="298" width="8" height="24" rx="4" fill="#C44B2F"/>
+  <!-- Hatched accent lines at bottom -->
+  <rect x="56" y="444" width="400" height="4" rx="2" fill="#C44B2F"/>
+  <rect x="56" y="456" width="400" height="4" rx="2" fill="#C44B2F" opacity="0.5"/>
+</svg>
