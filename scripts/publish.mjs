@@ -66,6 +66,18 @@ function extractDescription(markdown, title) {
   return title.slice(0, 160);
 }
 
+/**
+ * Convert markdown images with alt text to <figure> with <figcaption>.
+ * ![caption](url) → <figure><img src="url" alt="caption"><figcaption>caption</figcaption></figure>
+ * Images with empty alt text are left as-is.
+ */
+function convertImageCaptions(markdown) {
+  return markdown.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, (match, alt, url) => {
+    if (!alt.trim()) return match;
+    return `<figure><img src="${url}" alt="${alt}"><figcaption>${alt}</figcaption></figure>`;
+  });
+}
+
 /** Build the YAML frontmatter block for an Astro content collection entry. */
 function buildFrontmatter({ title, description, pubDate, tags }) {
   const esc = (s) => s.replace(/"/g, '\\"');
@@ -138,7 +150,8 @@ async function syncEntries({ notion, n2m, databaseId, typeFilter, targetDir, lab
     // ── Body markdown ──────────────────────────────────────────────────────
     const mdBlocks = await n2m.pageToMarkdown(page.id);
     const mdResult = n2m.toMarkdownString(mdBlocks);
-    const body = mdResult.parent ?? '';
+    const rawBody = mdResult.parent ?? '';
+    const body = convertImageCaptions(rawBody);
 
     // ── Description ────────────────────────────────────────────────────────
     const description = extractDescription(body, title);
