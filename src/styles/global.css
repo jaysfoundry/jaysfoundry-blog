@@ -34,7 +34,7 @@
 
 body {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
   color: var(--color-body);
@@ -61,23 +61,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: -0.3px;
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
 }
 
 h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
 }
 
 h4, h5, h6 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -111,7 +111,7 @@ img {
 /* Prose — blog post body content */
 .prose {
   color: var(--color-body);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -181,7 +181,7 @@ blockquote p {
 /* Inline code */
 code {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   padding: 2px 6px;
   background: rgba(139, 126, 106, 0.1);
   border-radius: 2px;
@@ -191,7 +191,7 @@ code {
 /* Code blocks */
 pre {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.6;
   background: var(--color-code-bg);
   color: var(--color-code-text);
@@ -205,7 +205,7 @@ pre {
 pre > code {
   all: unset;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 /* Scale marks decoration on code blocks */
@@ -242,7 +242,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 th, td {

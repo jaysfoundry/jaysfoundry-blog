@@ -46,7 +46,7 @@ const pages = (await getCollection('pages')).map((p) => ({
               {post.data.tags && post.data.tags.length > 0 && (
                 <div class="post-tags">
                   {post.data.tags.map((tag: string, tagIndex: number) => (
-                    <span class:list={['tag', { 'tag-accent': tagIndex === 0 && index === 0 }]}>
+                    <span class:list={['tag', { 'tag-accent': tagIndex % 2 === 0 }]}>
                       {tag}
                     </span>
                   ))}
@@ -80,10 +80,11 @@ const pages = (await getCollection('pages')).map((p) => ({
     border-bottom: none;
   }
 
+
   .post-date {
     min-width: 48px;
     text-align: right;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.5px;
     color: var(--color-taupe);
     padding-top: 3px;
@@ -102,7 +103,7 @@ const pages = (await getCollection('pages')).map((p) => ({
   }
 
   .post-title {
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: -0.1px;
     font-weight: 400;
     color: var(--color-ink);
@@ -116,7 +117,7 @@ const pages = (await getCollection('pages')).map((p) => ({
   }
 
   .post-description {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
     color: var(--color-taupe-light);
     margin: 0.35rem 0 0 0;
@@ -130,7 +131,7 @@ const pages = (await getCollection('pages')).map((p) => ({
   }
 
   .tag {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.8px;
     text-transform: uppercase;
     color: var(--color-taupe);
