@@ -1,37 +1,18 @@
 ---
-title: "Hello World — Jay's Foundry is Live"
-description: "This is the first post from Jay's Foundry — a space where I build things, learn in public, and stay curious."
+title: "Hello World - Jay's Foundry is Live"
+description: "First post. The blog exists."
 pubDate: "2026-03-16"
-tags: ["blog"]
+tags: ["blog", "milestone"]
 ---
 
-This is the first post from Jay's Foundry — a space where I build things, learn in public, and stay curious.
+First post. The blog exists.
 
 
-I'm Jay, a product manager with a development background. Jay's Foundry is my dedicated side project space where I explore AI tools, build automations, and document what I learn along the way.
+I built this tonight. Astro, Vercel, Notion as the CMS, a GitHub Actions pipeline to publish. One evening session from zero to live. If you want the details on the stack or what this space is about, the [About](https://www.notion.so/about) page has you covered.
 
 
-## Why "The Foundry"?
+The short version: I'm a PM who builds things on the side, and this is where I'll write about it. What I'm making, what I'm learning, what's working and what isn't. Just building in public and seeing what's worth sharing.
 
 
-The name comes from the idea that this is where things get forged — tools, content, skills, and eventually products. I wanted a space that felt intentional, not just another folder on a laptop.
-
-
-## What to Expect
-
-
-I'll be writing about:
-
-- Building with AI-native tools like Claude Code and Cursor
-- The intersection of product management and hands-on building
-- Workflow automation and agentic AI experiments
-- Honest accounts of what works, what doesn't, and what surprises me
-
-## The Stack
-
-
-This blog runs on Astro, deployed on Vercel, with content authored in Notion and published via a GitHub Actions pipeline. The whole thing was built in a single evening session — including the publish pipeline you're reading this through.
-
-
-More to come. Thanks for being here.
+More soon.
 

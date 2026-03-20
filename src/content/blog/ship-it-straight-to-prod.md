@@ -9,7 +9,7 @@ tags: ["vercel", "nugget", "process", "Claude Code"]
 > ## “SHIP IT”
 >
 >
-> (Iykyk)
+> _(Iykyk)_
 >
 >
 
