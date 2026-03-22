@@ -11,7 +11,7 @@ I'm not a designer. I've used Figma, but mostly for CX flow prototyping in FigJa
 I went in knowing two things. I wanted the aesthetic rooted in Dieter Rams and Braun industrial design. "Less, but better." Clean geometry, warm surfaces, restraint as a design choice. And I had a set of reference images from [Openkey Design](https://geekhack.org/index.php?topic=109750.0), artisan keycaps inspired by that same philosophy. Cream-colored caps, subtle geometric details, that specific Braun warmth.
 
 
-<figure><img src="/blog-assets/claude-as-a-design-studio/image-0.png" alt="image.png"><figcaption>image.png</figcaption></figure>
+![image.png](/blog-assets/claude-as-a-design-studio/image-0.png)
 
 
 <figure><img src="/blog-assets/claude-as-a-design-studio/image-1.png" alt="The reference material. Openkey Design's "Less, but better.""><figcaption>The reference material. Openkey Design's "Less, but better."</figcaption></figure>
@@ -29,7 +29,7 @@ From there it was iteration. About six rounds on the homepage and post page layo
 Part of the session produced a set of small icons built from those same Braun motifs: bars, dot grids, dials, menu lines. They came out looking like keycaps themselves, which I loved. I liked them enough that I ended up working a bar motif into the site's header and footer. That wasn't the plan going in. I was designing page layouts and ended up with brand elements.
 
 
-<figure><img src="/blog-assets/claude-as-a-design-studio/screenshot-2026-03-22-at-4-59-38-pm-3.png" alt="Screenshot_2026-03-22_at_4.59.38_PM.png"><figcaption>Screenshot_2026-03-22_at_4.59.38_PM.png</figcaption></figure>
+![Screenshot_2026-03-22_at_4.59.38_PM.png](/blog-assets/claude-as-a-design-studio/screenshot-2026-03-22-at-4-59-38-pm-3.png)
 
 
 That kept happening. Somewhere in the middle of all this, the scope shifted without me planning it. I'd sat down to pick a look for a blog. But as the visual language came together, I started realizing I wasn't just theming a website. I was building a brand. And all these gaps I'd been putting off since setting up the Shop became obvious. I didn't have a GitHub avatar. My Notion workspace had no visual identity. LinkedIn banners, favicons, social preview cards. I'd been deferring all of it because I didn't have anything to pull from yet.
