@@ -14,7 +14,7 @@ When I came back to it, the rejection actually helped me rethink the idea. A pri
 Right around the same time, Anthropic shipped [Channels](https://code.claude.com/docs/en/channels-reference) as a research preview. It's an MCP server that connects Claude Code to Discord or Telegram. You message from your phone, Claude processes it locally with full filesystem and git access, and replies back through the same channel. I'd been wanting to try it since the announcement, and the Listing Advisor was a good fit. Discord bot, powered by Claude Code, running on my machine.
 
 
-[embed](https://x.com/trq212/status/2034761016320696565)
+[embed](http://<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We just released Claude Code channels, which allows you to control your Claude Code session through select MCPs, starting with Telegram and Discord. <br><br>Use this to message Claude Code directly from your phone. <a href="https://t.co/sl3BP2BEzS">pic.twitter.com/sl3BP2BEzS</a></p>&mdash; Thariq (@trq212) <a href="https://twitter.com/trq212/status/2034761016320696565?ref_src=twsrc%5Etfw">March 19, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>)
 
 
 Getting it running took some learning on my end. The [Channels docs](https://code.claude.com/docs/en/channels-reference) cover the Claude Code side, but there's prerequisite work in the Discord Developer Portal first: creating an application, generating a bot token, enabling Message Content Intent, setting OAuth2 scopes and permissions, inviting the bot to a server.
