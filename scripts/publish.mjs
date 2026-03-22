@@ -75,7 +75,9 @@ function extractDescription(markdown, title) {
  */
 function convertImageCaptions(markdown) {
   return markdown.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, (match, alt, url) => {
-    if (!alt.trim()) return match;
+    const trimmed = alt.trim();
+    // Skip captions that are empty or just a filename (e.g. "image.png", "screenshot-2.jpg")
+    if (!trimmed || /^\S+\.\w{2,4}$/.test(trimmed)) return match;
     return `<figure><img src="${url}" alt="${alt}"><figcaption>${alt}</figcaption></figure>`;
   });
 }
@@ -291,6 +293,37 @@ async function main() {
 
   const notion = new Client({ auth: NOTION_API_TOKEN });
   const n2m = new NotionToMarkdown({ notionClient: notion });
+
+  // ── Custom embed transformer ────────────────────────────────────────────────
+  // Notion embed blocks only store a URL. Transform them into renderable HTML
+  // based on the URL pattern (Twitter/X, YouTube, or generic iframe).
+  n2m.setCustomTransformer('embed', async (block) => {
+    const raw = block.embed?.url;
+    if (!raw) return '';
+
+    // Notion sometimes stores pasted embed HTML as the "url" value.
+    // Extract a real Twitter/X URL from the blob if present.
+    const twitterUrlFromHtml = raw.match(
+      /https?:\/\/(?:twitter\.com|x\.com)\/\w+\/status\/\d+/
+    );
+    const url = twitterUrlFromHtml ? twitterUrlFromHtml[0] : raw;
+
+    // Twitter / X
+    if (/^https?:\/\/(twitter\.com|x\.com)\//i.test(url)) {
+      return `<blockquote class="twitter-tweet"><a href="${url}">${url}</a></blockquote>`;
+    }
+
+    // YouTube (watch and short URLs)
+    const ytMatch = url.match(
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/
+    );
+    if (ytMatch) {
+      return `<div class="embed-responsive"><iframe src="https://www.youtube.com/embed/${ytMatch[1]}" frameborder="0" allowfullscreen loading="lazy"></iframe></div>`;
+    }
+
+    // Generic — render as iframe
+    return `<div class="embed-responsive"><iframe src="${url}" frameborder="0" loading="lazy"></iframe></div>`;
+  });
 
   // Sync blog posts
   console.log('── Blog posts ──');

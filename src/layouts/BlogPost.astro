@@ -74,6 +74,15 @@ const { title, description, pubDate, updatedDate, tags, readingTime, prevPost, n
     <HatchedDivider />
     <Footer />
     <Analytics />
+    <script is:inline>
+      // Load Twitter widget.js only when tweet embeds are present
+      if (document.querySelector('.twitter-tweet')) {
+        const s = document.createElement('script');
+        s.src = 'https://platform.twitter.com/widgets.js';
+        s.async = true;
+        document.body.appendChild(s);
+      }
+    </script>
   </body>
 </html>
 
