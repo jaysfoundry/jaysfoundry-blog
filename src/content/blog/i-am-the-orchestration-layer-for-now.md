@@ -35,7 +35,7 @@ Every time I use Claude Code, I improve the `CLAUDE.md` file that tells it how t
 Early on, switching from Chat to Code meant re-explaining the entire project. Now it's one sentence of intent. _"Add a date field to the blog post frontmatter."_ Code already knows the project structure, the conventions, where the files live. I encoded all of that into a hierarchy of `CLAUDE.md` files that Code reads automatically (I touched on this in [Treating My Side Projects Like a Product](https://jaysfoundry.com/blog/treating-my-side-projects-like-a-product/), but here's how it actually plays out):
 
 
-```javascript
+```markdown
 ~/.claude/CLAUDE.md              # who I am, how I work (private)
 ~/shop/CLAUDE.md                 # Shop-wide context, Notion IDs (private)
 ~/shop/projects/blog/CLAUDE.md   # stack, conventions, commands (committed)
@@ -68,7 +68,7 @@ I'm going the other direction. Build things. Notice where I'm doing the same wor
 Right now, that instruction layer is a `CLAUDE.md` file, a few project instruction sets, and one Uploaded Skill. Not sophisticated. But every piece of it exists because I hit a real problem and wrote something down to fix it. Nothing is speculative. You can see the pace in the decisions log:
 
 
-```javascript
+```markdown
 March 17 — Adopted Think/Build/Automate model
 March 18 — CLAUDE.md three-layer hierarchy with public repo posture
 March 18 — Jay's Voice decoupled into standalone uploaded skill
