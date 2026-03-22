@@ -28,7 +28,7 @@ The Jay's Foundry blog — a personal site for writing about building with AI to
 - Dynamic pages: `src/pages/[page].astro` (fetches pages collection)
 - `/blog` redirects to `/` via `astro.config.mjs`
 
-**Layouts:** `src/layouts/BlogPost.astro` wraps individual posts (accepts readingTime, prevPost, nextPost, pages props).
+**Layouts:** `src/layouts/BlogPost.astro` wraps individual posts (accepts readingTime, prevPost, nextPost, pages props). There is no shared base layout — each page/layout has its own `<html>/<body>` structure, so site-wide additions (analytics, scripts) must be added to all four: `BlogPost.astro`, `index.astro`, `[page].astro`, `404.astro`.
 
 **Components:** `src/components/` includes:
 - `BaseHead.astro` — SEO/meta tags, font loading, favicon
@@ -40,6 +40,8 @@ The Jay's Foundry blog — a personal site for writing about building with AI to
 **Site constants:** `src/consts.ts` holds `SITE_TITLE` and `SITE_DESCRIPTION`.
 
 **Config:** `astro.config.mjs` — integrations: MDX, Sitemap. Site URL: `https://jaysfoundry.com`.
+
+**Analytics:** Vercel Analytics (`@vercel/analytics/astro`) — `<Analytics />` component included in all page templates.
 
 **Styles:** Global CSS in `src/styles/global.css` — design tokens, typography (DM Sans/Mono), base styles.
 
@@ -58,8 +60,10 @@ src/
   content.config.ts  # Collection schemas (Zod validation)
 scripts/
   publish.mjs        # Notion → markdown sync script
+  rebase-safe.sh     # Auto-resolve content conflicts on rebase
 public/
   brand/             # Favicon and brand icon library
+  blog-assets/       # Downloaded blog post images (pipeline-managed)
 docs/
   design-spec.md     # Full visual design specification
 .github/
@@ -77,10 +81,11 @@ Content is authored in Notion (Learning Log database). The pipeline syncs Notion
 **How it works:**
 1. `scripts/publish.mjs` queries Notion API for published entries
 2. Converts Notion blocks to Astro-compatible markdown with frontmatter
-3. Writes to content directories, cleans up orphaned files
-4. Skips unchanged files via SHA-256 hash
-5. GitHub Action commits changes and pushes to `main`
-6. Vercel auto-deploys
+3. Downloads images from Notion S3 URLs to `public/blog-assets/<slug>/` (Notion URLs expire after ~1 hour)
+4. Writes to content directories, cleans up orphaned files and stale image assets
+5. Skips unchanged files via SHA-256 hash (images only download for new/changed posts)
+6. GitHub Action commits changes and pushes to `main`
+7. Vercel auto-deploys
 
 **To trigger:** `gh workflow run "Publish Notion Posts"` from CLI, or GitHub Actions UI.
 
@@ -88,7 +93,7 @@ Content is authored in Notion (Learning Log database). The pipeline syncs Notion
 
 **Secrets** (GitHub repo secrets): `NOTION_API_TOKEN`, `NOTION_DATABASE_ID`
 
-**Do not manually edit pipeline-managed files in `src/content/blog/` or `src/content/pages/`** — they'll be overwritten on next publish run.
+**Do not manually edit pipeline-managed files in `src/content/blog/`, `src/content/pages/`, or `public/blog-assets/`** — they'll be overwritten on next publish run.
 
 ## Git Push Conflicts
 The publish workflow runs on `main` and can push commits between your local work. When pushing, use `npm run rebase` instead of `git pull --rebase` — it auto-resolves conflicts in pipeline-managed content files (`src/content/blog/`, `src/content/pages/`, `public/blog-assets/`) by taking the remote version. Non-content conflicts still require manual resolution.
@@ -106,5 +111,4 @@ Secrets are in `.env` for local dev. See `.env.example` for required keys. Never
 ## Future Work
 - Preview deploys (PR-based branch workflow with Vercel preview URLs)
 - Project showcase pages
-- Image support in blog posts
 - Per-post OG images
