@@ -40,7 +40,9 @@ When Jay says "scaffold a new project", "create a new project",
 I needed to test it. I play Magic: The Gathering, so the first idea that came to mind was a silly one:
 
 
-`Lets start a new project that makes a haiku out of magic the gathering card text.`
+```markdown
+Lets start a new project that makes a haiku out of magic the gathering card text.
+```
 
 
 Claude Code ran the scaffold skill, built the project, and pushed it to GitHub. Working code, committed, from a twelve-word prompt. No follow-up questions from me, no corrections mid-stream.
