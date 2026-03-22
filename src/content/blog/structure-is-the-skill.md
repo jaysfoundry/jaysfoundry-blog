@@ -2,7 +2,7 @@
 title: "Structure Is the Skill"
 description: "With Channels working, the Listing Advisor needed to actually know something about listings. I'd already mapped out what good listing advice looks like from exp"
 pubDate: "2026-03-22"
-tags: ["Claude Code", "agentic", "skills"]
+tags: ["Claude Code", "agentic", "skills", "ai orchestration"]
 ---
 
 With [Channels working](https://jaysfoundry.com/blog/first-look-at-claude-code-channels/), the Listing Advisor needed to actually know something about listings. I'd already mapped out what good listing advice looks like from experience: evaluate the item (grade, condition, edition), research pricing against recent comps, write a description that covers what buyers actually care about, and give guidance on photos and shipping. Four discrete steps.

@@ -2,7 +2,7 @@
 title: "Claude as a Design Studio"
 description: "I'm not a designer. I've used Figma, but mostly for CX flow prototyping in FigJam, not for visual design. I don't think in grids and spacing tokens. So when it"
 pubDate: "2026-03-20"
-tags: ["blog", "process", "agentic"]
+tags: ["blog", "process", "design"]
 ---
 
 I'm not a designer. I've used Figma, but mostly for CX flow prototyping in FigJam, not for visual design. I don't think in grids and spacing tokens. So when it came time to make this blog look like something, I did it the only way I knew how: I opened a chat and started talking through it.
