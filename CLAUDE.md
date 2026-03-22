@@ -13,6 +13,7 @@ The Jay's Foundry blog — a personal site for writing about building with AI to
 - `npm run build` — production build to `./dist/`
 - `npm run preview` — preview production build locally
 - `npm run sync` — pull published content from Notion locally (requires `.env`)
+- `npm run rebase` — pull --rebase with auto-resolve for pipeline-managed content
 - `npx astro check` — TypeScript type checking
 
 ## Architecture
@@ -90,7 +91,7 @@ Content is authored in Notion (Learning Log database). The pipeline syncs Notion
 **Do not manually edit pipeline-managed files in `src/content/blog/` or `src/content/pages/`** — they'll be overwritten on next publish run.
 
 ## Git Push Conflicts
-The publish workflow runs on `main` and can push commits between your local work. When pushing, you may need to rebase. Local-only Notion content files (from `npm run sync`) will conflict during rebase — move them to `/tmp/`, rebase, then restore. This is a known friction point.
+The publish workflow runs on `main` and can push commits between your local work. When pushing, use `npm run rebase` instead of `git pull --rebase` — it auto-resolves conflicts in pipeline-managed content files (`src/content/blog/`, `src/content/pages/`, `public/blog-assets/`) by taking the remote version. Non-content conflicts still require manual resolution.
 
 ## Conventions
 - This is a **public repo** — recruiter test applies to all committed files

@@ -35,5 +35,6 @@ jobs:
           git add src/content/blog/ src/content/pages/ public/blog-assets/
           git diff --staged --quiet || (
             git commit -m "chore: sync content from Notion" &&
+            git pull --rebase origin main &&
             git push
           )

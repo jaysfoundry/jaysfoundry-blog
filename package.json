@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sync": "node --env-file=.env scripts/publish.mjs"
+    "sync": "node --env-file=.env scripts/publish.mjs",
+    "rebase": "bash scripts/rebase-safe.sh"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.0",
