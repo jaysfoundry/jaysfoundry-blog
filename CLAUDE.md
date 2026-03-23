@@ -43,6 +43,8 @@ The Jay's Foundry blog — a personal site for writing about building with AI to
 
 **Analytics:** Vercel Analytics (`@vercel/analytics/astro`) — `<Analytics />` component included in all page templates.
 
+**SEO:** Google Search Console verified via meta tag in `BaseHead.astro`. Sitemap submitted at `/sitemap-index.xml`.
+
 **Styles:** Global CSS in `src/styles/global.css` — design tokens, typography (DM Sans/Mono), base styles.
 
 **Brand assets:** `public/brand/favicon/` (favicon at all sizes) and `public/brand/icons/` (10 Braun/Rams-inspired SVG + PNG icons). Primary mark is the JF monogram (`icon-h-monogram-jf`).
@@ -92,6 +94,8 @@ Content is authored in Notion (Learning Log database). The pipeline syncs Notion
 **Local preview:** `npm run sync` pulls content locally using `.env` credentials. These local content files are not committed — the GitHub Action handles production syncing.
 
 **Secrets** (GitHub repo secrets): `NOTION_API_TOKEN`, `NOTION_DATABASE_ID`
+
+**Supported Notion block types:** Standard text, headings, lists, images, code blocks, quotes, dividers, callouts, and **embeds**. Embed blocks detect URL patterns — Twitter/X renders as hydrated tweets (widget.js loaded in `BlogPost.astro`), YouTube as responsive iframes, and other URLs as generic iframes. Images without captions render with no alt text fallback.
 
 **Do not manually edit pipeline-managed files in `src/content/blog/`, `src/content/pages/`, or `public/blog-assets/`** — they'll be overwritten on next publish run.
 
