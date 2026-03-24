@@ -51,7 +51,7 @@ The practical piece is three skills that handle the most common Notion write pat
 ```
 
 
-These live in a public repo and get discovered through symlinks from the project tree. The skills describe the process. Notion IDs and anything sensitive come from the private `~/shop/CLAUDE.md` at runtime, so the skills themselves stay safe to share. The repo includes templates with placeholder values for the private files, so if you want to try this pattern, you can clone it and fill in your own IDs. That was deliberate: [github.com/jaysfoundry/shop-skills](http://github.com/jaysfoundry/shop-skills).
+These live in a repo and get discovered through symlinks from the project tree. The skills describe the process. Notion IDs and anything sensitive come from the private `~/shop/CLAUDE.md` at runtime, so the skills themselves stay safe to share.
 
 
 **Documentation caught up to reality.** The Agentic Orchestration page, the Operating Manual, the Current State page all got rewritten to reflect Code-primary. I also ran a consistency audit across every instruction file, skill, and registry entry. Found eleven data issues. Things like skill paths pointing to a discovery location that doesn't actually work (`~/.claude/skills/` isn't scanned by Code, only `.claude/skills/` within the project tree). The kind of thing you only find by actually using the system and watching it not do what you expected.
