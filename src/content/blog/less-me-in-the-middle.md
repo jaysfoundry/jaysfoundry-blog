@@ -2,7 +2,7 @@
 title: "Less Me in the Middle"
 description: "In I Am the Orchestration Layer, I laid out how my workflow actually works: Chat thinks, Code builds, I route between them. It was working. I also left three op"
 pubDate: "2026-03-23"
-tags: ["agentic", "ai orchestration", "process", "Claude Code", "orchestration", "skills"]
+tags: ["ai orchestration", "Claude Code", "orchestration", "skills", "process"]
 ---
 
 In [I Am the Orchestration Layer](https://jaysfoundry.com/blog/i-am-the-orchestration-layer-for-now/), I laid out how my workflow actually works: Chat thinks, Code builds, I route between them. It was working. I also left three open questions. When does a tool earn trust to act without review? How do instruction files scale? What does shared context between tools actually look like?
