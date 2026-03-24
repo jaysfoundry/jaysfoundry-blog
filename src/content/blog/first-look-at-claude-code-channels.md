@@ -2,7 +2,7 @@
 title: "First Look at Claude Code Channels"
 description: "I'd just wrapped up the blog and was looking at what to build next. I'm into collectibles — mostly Magic: The Gathering cards, but also toys, novelty stuff, wha"
 pubDate: "2026-03-21"
-tags: ["Claude Code", "discord", "channels", "dev tools", "chat"]
+tags: ["Claude Code", "discord", "channels", "dev tools", "nugget"]
 ---
 
 I'd just wrapped up the blog and was looking at what to build next. I'm into collectibles — mostly Magic: The Gathering cards, but also toys, novelty stuff, whatever catches my eye (My wife also loves Disney pins). Things come and go in the collection and that's part of the fun. So when I first set up the Shop and started seeding it with project ideas, one of the early ones was an eBay price tool. Mostly just something to try building with Claude Code. I applied for an eBay developer account early on and got rejected. Appealed, still pending. That sat in the backlog for a week while I built the blog.
