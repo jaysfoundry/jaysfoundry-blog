@@ -2,7 +2,7 @@
 title: "Two Surfaces, Two Jobs"
 description: "I added Obsidian to the Shop last week. Not because Notion wasn't working. It's the backbone of everything I've built so far. Five databases, six skills reading"
 pubDate: "2026-04-07"
-tags: ["process", "organization"]
+tags: ["process", "organization", "obsidian", "writing"]
 ---
 
 I added Obsidian to the Shop last week. Not because Notion wasn't working. It's the backbone of everything I've built so far. Five databases, six skills reading and writing structured state, [three AI tools coordinating through it](https://jaysfoundry.com/blog/treating-my-side-projects-like-a-product/). Notion is the operating system.

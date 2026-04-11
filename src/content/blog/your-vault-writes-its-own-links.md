@@ -2,7 +2,7 @@
 title: "Your Vault Writes Its Own Links"
 description: "Obsidian's linking model assumes you remember what you wrote. You create a note, think about what relates to it, and type out the [[wikilinks]] manually. That w"
 pubDate: "2026-04-04"
-tags: ["agentic", "process"]
+tags: ["agentic", "process", "obsidian", "ai orchestration"]
 ---
 
 Obsidian's linking model assumes you remember what you wrote. You create a note, think about what relates to it, and type out the `[[wikilinks]]` manually. That works with a small vault and good memory. It's going to break as the vault grows.

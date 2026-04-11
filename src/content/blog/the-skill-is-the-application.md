@@ -2,7 +2,7 @@
 title: "The Skill Is the Application"
 description: "The reading-miner doesn't have application code. Not in the traditional sense."
 pubDate: "2026-04-11"
-tags: ["agentic", "Claude Code", "skills"]
+tags: ["agentic", "Claude Code", "skills", "app"]
 ---
 
 The reading-miner doesn't have application code. Not in the traditional sense.
