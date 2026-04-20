@@ -2,7 +2,7 @@
 title: "Documentation Audits Have Two Layers"
 description: "I just rewrote three reference pages to reflect a new model for how my tools work together. Continuous state maintenance instead of session rituals. Code as the"
 pubDate: "2026-03-25"
-tags: ["process", "agentic", "documenation", "nugget"]
+tags: ["process", "agentic", "documentation", "nugget"]
 ---
 
 I just rewrote three reference pages to reflect a new model for how my tools work together. Continuous state maintenance instead of session rituals. Code as the primary surface. Clean, principled changes.
