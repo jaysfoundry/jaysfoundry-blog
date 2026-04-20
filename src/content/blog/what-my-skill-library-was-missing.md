@@ -65,5 +65,5 @@ I don't know how this generalizes. Five roles worked for the Shop because the Sh
 I also don't know how to evaluate "complete" for a family that's still growing. Right now the Shop feels complete because the five roles are covered and the skills compose cleanly. That might change as new domains (security, onboarding, deployment) emerge and need their own families.
 
 
-What I do know: the moment the fifth role shipped, the library stopped feeling like a pile of skills and started feeling like a system. That's the signal worth paying attention to.
+What I do know: the moment the fifth role shipped, the library stopped feeling like separate tools and started feeling like something that could catch its own drift. That's the signal worth paying attention to.
 
